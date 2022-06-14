@@ -10,6 +10,7 @@ import pt.migrantmatcher.facade.handlers.AjudasHandler;
 import pt.migrantmatcher.facade.handlers.MigranteHandler;
 import pt.migrantmatcher.facade.dto.HelpDTO;
 import pt.migrantmatcher.facade.dto.RegionDTO;
+import com.pidgeonsmssender.sdk.*;
 
 public class Client{
 	
@@ -108,7 +109,6 @@ public class Client{
 			mh.confirmar();
 			System.out.println("Your requests have been confirmed!");
 		}
-		
 	
 		
 	}
