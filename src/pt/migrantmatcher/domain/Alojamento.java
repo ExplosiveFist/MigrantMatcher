@@ -9,7 +9,7 @@ public class Alojamento extends Ajuda {
 		this.numPessoas = numPessoas;
 	}
 	
-	public Regiao getRegiaoAjuda() {
+	public Regiao getRegiaoAlojamento() {
 		return super.getRegiaoAjuda();
 	}
 	

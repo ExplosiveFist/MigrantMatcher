@@ -7,8 +7,9 @@ import java.util.ArrayList;
 public class Migrante extends Utilizador {
 	
 	private String nome;
-	private List<String> family; 
-	
+	private List<String> family;
+	private List<Ajuda> ajudas;
+
 	public Migrante(String nome, int telemovel, int numFamiliares) {
 		super(telemovel);
 		this.nome = nome;
@@ -22,6 +23,10 @@ public class Migrante extends Utilizador {
 		family.add(name);
 	}
 	
+	public void addAjuda(Ajuda ajuda) {
+		ajudas.add(ajuda);
+	}
+	
 	public int getTelephoneNumber() {
 		return super.getTelephoneNumber();
 	}
@@ -29,4 +34,5 @@ public class Migrante extends Utilizador {
 	public String getName() {
 		return nome;
 	}
+	
 }
