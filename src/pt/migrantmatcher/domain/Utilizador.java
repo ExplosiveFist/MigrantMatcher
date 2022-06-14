@@ -3,7 +3,7 @@ package pt.migrantmatcher.domain;
 
 public class Utilizador {
 
-	protected int telemovel; 
+	private int telemovel; 
 	
 	/**
 	 * Class constructor for Utilizador class
@@ -18,7 +18,7 @@ public class Utilizador {
 	 * @return - this.telemovel
 	 */
 	public int getTelephoneNumber() {
-		return this.telemovel;
+		return telemovel;
 	}
 	
 	/**
