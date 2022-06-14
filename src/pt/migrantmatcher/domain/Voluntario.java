@@ -18,4 +18,7 @@ public class Voluntario extends Utilizador {
 		return super.getTelephoneNumber();
 	}
 	
+	public void addAjuda(Ajuda ajuda) {
+		ajudas.add(ajuda);
+	}
 }

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Migrante extends Utilizador {
 	
 	private String nome;
-	private List<String> family;
+	private List<String> family; 
 	
 	public Migrante(String nome, int telemovel, int numFamiliares) {
 		super(telemovel);
