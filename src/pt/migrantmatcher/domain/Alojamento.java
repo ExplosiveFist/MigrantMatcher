@@ -13,6 +13,10 @@ public class Alojamento extends Ajuda {
 		return super.getRegiaoAjuda();
 	}
 	
+	public Voluntario getAlojamentoOwner() {
+		return super.getAjudaOwner();
+	}
+	
 	public int getNumPessoasAlojamento() {
 		return numPessoas;
 	}

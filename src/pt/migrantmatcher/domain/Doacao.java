@@ -13,6 +13,10 @@ public class Doacao extends Ajuda {
 		return super.getRegiaoAjuda();
 	}
 	
+	public Voluntario getDoacaoOwner() {
+		return super.getAjudaOwner();
+	}
+	
 	public String getDescricao() {
 		return descricao;
 	}
