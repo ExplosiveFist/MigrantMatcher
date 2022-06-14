@@ -6,8 +6,8 @@ public class Ajuda {
 	private Regiao region;
 	private Voluntario owner;
 
-	public Ajuda(Voluntario owner) {
-		this.owner = owner;
+	public Ajuda() {
+		
 	}
 	
 	public Regiao getRegiaoAjuda() {
@@ -16,6 +16,11 @@ public class Ajuda {
 	
 	public Voluntario getAjudaOwner() {
 		return owner;
+	}
+
+	public void setRegion(Regiao r) {
+		this.region = r;
+		
 	}
 	
 }

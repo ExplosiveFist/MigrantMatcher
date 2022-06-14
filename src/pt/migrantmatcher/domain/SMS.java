@@ -6,10 +6,17 @@ public class SMS {
 	public int num;
 	public String txt;
 	
-	public SMS(Voluntario v) {
+	public SMS(int num) {
 		
-		this.num = v.getTelephoneNumber();
+		this.num = num;
 	
 	}
+	
+	public void setCode(String code) {
+		this.code = code;
+	}
 
+	public void setMsg(String msg) {
+		this.txt = msg;
+	}
 }

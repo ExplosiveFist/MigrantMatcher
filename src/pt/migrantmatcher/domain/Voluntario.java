@@ -11,6 +11,7 @@ public class Voluntario extends Utilizador {
 	
 	private String codigoInserido;
 	private List<Ajuda> ajudas;
+	private Ajuda currentHelp;
 	
 	public Voluntario(int codigo, int telemovel) {
 		super(telemovel);
@@ -26,11 +27,18 @@ public class Voluntario extends Utilizador {
 	}
 
 	public void createAlojamento(int i) {
-		// TODO Auto-generated method stub
+		
+		currentHelp = new Alojamento(i);
 		
 	}
 
 	public SMSDTO setRegionAloj(Regiao region) {
+		currentHelp.setRegion(region);
+		
+		return createSMS();
+	}
+
+	private SMSDTO createSMS() {
 		// TODO Auto-generated method stub
 		return null;
 	}
