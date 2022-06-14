@@ -22,14 +22,14 @@ public class Client{
 		AjudasHandler ah = MigrantMatcher.getInstance().getAjudasHandler();
 		System.out.println("Please introduce your phone number");
 		
-		ah.verificarUtilizador("918376458");
+		ah.verificarUtilizador(918376458);
 		
 		SMS sms;
 		System.out.println("Please indicate your help type:");
 		Random r  = new Random ();
 		if(r.nextBoolean()) { // Alojamento
 			
-			List<RegionDTO> regions = ah.numPessoasAlojamento("5");
+			List<RegionDTO> regions = ah.numPessoasAlojamento(5);
 			
 			System.out.println("Available reigions: \n" + regions);
 			System.out.println("Please choose an available region.");
@@ -57,7 +57,7 @@ public class Client{
 		if(r.nextBoolean()) { //Solo
 			
 			System.out.println("Please give state your name and phone number");
-			mh.registarMigrante("Miguel","999888777");
+			mh.registarMigrante("Miguel",999888777);
 			
 		}
 		else { //Family
@@ -65,8 +65,8 @@ public class Client{
 			String [] familyNames = {"Maria" ,"João"}; 
 			
 			System.out.println("Please give state your name, phone number and the number of additional family members");
-			mh.registarFamily(familyNumber);
-			mh.registarCabeçaCasal("Miguel","999888777");  //Maybe fuse this 2 methods into one?
+			
+			mh.registarFamily(familyNumber,"Miguel",999888777);  
 			
 			for (int i = 0; i < familyNumber - 1; i++) { 
 				System.out.println("Please add the names of the members one by one");
