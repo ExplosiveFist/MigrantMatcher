@@ -1,19 +1,17 @@
+
 package pt.migrantmatcher.facade.dto;
 
 
-public class RegionDTO{
+public class AjudasDTO{
 	
-	private String name;
+	private String type;
+	private String region;
 	
-	public RegionDTO(String r) {
+	public AjudasDTO(String t, String r) {
 		
-		this.name = r;
+		this.type = t;
+		this.region = r;
 		
-	}
-	
-	public String getName() {
-		
-		return this.name;
 	}
 	
 }

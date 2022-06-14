@@ -22,5 +22,16 @@ public class Ajuda {
 		this.region = r;
 		
 	}
+
+	public void registerHelp() {
+		
+		
+	}
+
+	public void setOwner(Voluntario v) {
+		
+		this.owner = v;
+		
+	}
 	
 }

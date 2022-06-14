@@ -2,6 +2,8 @@ package pt.migrantmatcher.facade.handlers;
 
 import java.util.List;
 
+import pt.migrantmatcher.domain.Ajuda;
+import pt.migrantmatcher.domain.CatalogoAjudas;
 import pt.migrantmatcher.domain.CatalogoRegioes;
 import pt.migrantmatcher.domain.CatalogoUtilizadores;
 import pt.migrantmatcher.domain.Regiao;
@@ -14,11 +16,13 @@ public class AjudasHandler {
 	private CatalogoUtilizadores catUser;
 	private CatalogoRegioes catRegions;
 	private Voluntario v_corrente;
+	private CatalogoAjudas catAjudas;
 	
 
-	public AjudasHandler(CatalogoUtilizadores catU, CatalogoRegioes catR) {
+	public AjudasHandler(CatalogoUtilizadores catU, CatalogoRegioes catR,CatalogoAjudas catA) {
 		this.catUser = catU;
 		this.catRegions = catR;
+		this.catAjudas = catA;
 	}
 
 	public void verificarUtilizador(int num) {
@@ -58,7 +62,9 @@ public class AjudasHandler {
 
 	public void inserirCodigoUnico(String code) {
 		
-	      v_corrente.verificarCodigo(code); //Exceção wrong code
+	      Ajuda help = v_corrente.verificarCodigo(code); //Exceção wrong code
+	      help.setOwner(v_corrente);
+	      catAjudas.registerHelp(help);
 		
 	}
 

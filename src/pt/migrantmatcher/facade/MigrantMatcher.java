@@ -27,7 +27,7 @@ public class MigrantMatcher {
 	
 	public AjudasHandler getAjudasHandler() {
 		
-		return new AjudasHandler(catU,catR);
+		return new AjudasHandler(catU,catR,catA);
 		
 	}
 	

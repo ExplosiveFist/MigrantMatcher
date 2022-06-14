@@ -4,8 +4,7 @@ public class Doacao extends Ajuda {
 	
 	private String descricao;
 	
-	public Doacao(Voluntario owner, Regiao region, String descricao) {
-		super(owner, region);
+	public Doacao(String descricao) {
 		this.descricao = descricao;
 	}
 	

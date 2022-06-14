@@ -9,11 +9,11 @@ import java.util.ArrayList;
 
 public class Voluntario extends Utilizador {
 	
-	private String codigoInserido;
+	private String codigo;
 	private List<Ajuda> ajudas;
 	private Ajuda currentHelp;
 	
-	public Voluntario(int codigo, int telemovel) {
+	public Voluntario(int telemovel) {
 		super(telemovel);
 		ajudas = new ArrayList<Ajuda>();
 	}
@@ -39,17 +39,32 @@ public class Voluntario extends Utilizador {
 	}
 
 	private SMSDTO createSMS() {
+		SMS sms = new SMS(getTelephoneNumber());
+		String code = generateCode();
+		this.codigo = code;
+		sms.setCode(code);
+		sms.setMsg("Please confirm the code " + code);
+		
+		//sms.send()
+		
+		return new SMSDTO(code);
+	}
+
+	private String generateCode() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public SMSDTO createDoacao(String desc) {
-		// TODO Auto-generated method stub
-		return null;
+		currentHelp = new Doacao(desc);
+		return createSMS();
 	}
 
-	public void verificarCodigo(String code) {
-		// TODO Auto-generated method stub
-		
+	public Ajuda verificarCodigo(String code) {
+		if(this.codigo == code) {
+			addAjuda(this.currentHelp);
+			return this.currentHelp;
+		}
+		return null;
 	}
 }

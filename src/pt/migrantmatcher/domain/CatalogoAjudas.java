@@ -11,4 +11,9 @@ public class CatalogoAjudas {
 	public CatalogoAjudas() {
 		this.ajudas = new ArrayList<Ajuda>();
 	}
+
+	public void registerHelp(Ajuda help) {
+		ajudas.add(help);
+		
+	}
 }

@@ -1,5 +1,7 @@
 package pt.migrantmatcher.domain;
 
+import pt.migrantmatcher.utils.plugins.SMSProvider;
+
 public class SMS {
 	
 	public String code;
@@ -18,5 +20,10 @@ public class SMS {
 
 	public void setMsg(String msg) {
 		this.txt = msg;
+	}
+
+	public void send() {
+		// TODO Auto-generated method stub
+		
 	}
 }
