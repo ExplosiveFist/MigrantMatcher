@@ -6,9 +6,8 @@ public class Ajuda {
 	private Regiao region;
 	private Voluntario owner;
 
-	public Ajuda(Voluntario owner, Regiao region) {
+	public Ajuda(Voluntario owner) {
 		this.owner = owner;
-		this.region = region;
 	}
 	
 	public Regiao getRegiaoAjuda() {

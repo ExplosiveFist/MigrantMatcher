@@ -7,7 +7,6 @@ import pt.migrantmatcher.domain.CatalogoUtilizadores;
 import pt.migrantmatcher.domain.Regiao;
 import pt.migrantmatcher.facade.dto.RegionDTO;
 import pt.migrantmatcher.facade.dto.SMSDTO;
-import pt.migrantmatcher.domain.SMS;
 import pt.migrantmatcher.domain.Voluntario;
 
 public class AjudasHandler {
@@ -27,7 +26,7 @@ public class AjudasHandler {
 		v_corrente = catUser.getVoluntario(num);
 		
 		if(v_corrente == null) {
-			System.out.println("Exception"); //TODO
+			System.out.println("Exception"); //TODO Não tem voluntário registado com este número
 		}
 		
 	}

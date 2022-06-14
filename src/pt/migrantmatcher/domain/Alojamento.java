@@ -4,8 +4,8 @@ public class Alojamento extends Ajuda {
 	
 	private int numPessoas;
 	
-	public Alojamento(Voluntario owner, Regiao region, int numPessoas) {
-		super(owner, region);
+	public Alojamento(Voluntario owner, int numPessoas) {
+		super(owner);
 		this.numPessoas = numPessoas;
 	}
 	
