@@ -5,7 +5,7 @@ import java.util.List;
 import pt.migrantmatcher.domain.CatalogoRegioes;
 import pt.migrantmatcher.domain.CatalogoUtilizadores;
 import pt.migrantmatcher.facade.dto.RegionDTO;
-import pt.migrantmatcher.main.SMS;
+import pt.migrantmatcher.domain.SMS;
 
 public class AjudasHandler {
 
