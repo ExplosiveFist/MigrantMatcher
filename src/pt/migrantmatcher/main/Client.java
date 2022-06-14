@@ -1,16 +1,12 @@
 package pt.migrantmatcher.main;
 
+import pt.migrantmatcher.facade.*;
+import pt.migrantmatcher.facade.handlers.*;
+import pt.migrantmatcher.facade.dto.*;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
-import pt.migrantmatcher.facade.MigrantMatcher;
-import pt.migrantmatcher.facade.handlers.AjudasHandler;
-import pt.migrantmatcher.facade.handlers.MigranteHandler;
-import pt.migrantmatcher.facade.dto.HelpDTO;
-import pt.migrantmatcher.facade.dto.RegionDTO;
-import pt.migrantmatcher.facade.dto.SMSDTO;
 
 
 public class Client{
@@ -80,7 +76,7 @@ public class Client{
 		System.out.println("Please choose an available region.");
 		int choice = r.nextInt(regions.size());
 		
-		List<HelpDTO> helpList = escolherRegiao(regions.get(choice)); //Ter em conta testes em que existem ajudas
+		List<AjudasDTO> helpList = escolherRegiao(regions.get(choice)); //Ter em conta testes em que existem ajudas
 		
 		//Extensão 5a (Usa Observer)
 		if(helpList.isEmpty()) {
@@ -94,7 +90,7 @@ public class Client{
 			
 			//Takes a random number of elements from the help list
 			int numberOfHelps = r.nextInt(helpList.size());
-			List<HelpDTO> helpsChosen = new ArrayList<>();
+			List<AjudasDTO> helpsChosen = new ArrayList<>();
 			int helpIndex;
 			
 			for(int i = 0; i < numberOfHelps; i++) {
