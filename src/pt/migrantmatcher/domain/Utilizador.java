@@ -27,7 +27,7 @@ public class Utilizador {
 	 * @return - true if equals, false if not
 	 */
 	public boolean verificarUtilizador(int telemovel) {
-		return this.telemovel.equals(telemovel);
+		return this.telemovel == telemovel;
 	}
 	
 }

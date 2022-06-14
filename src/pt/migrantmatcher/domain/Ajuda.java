@@ -1,5 +1,5 @@
 package pt.migrantmatcher.domain;
 
-public class Familia {
+public class Ajuda {
 
 }

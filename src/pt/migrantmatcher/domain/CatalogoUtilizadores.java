@@ -24,9 +24,9 @@ public class CatalogoUtilizadores {
 	 * @param nome migrant's name
 	 * @param telemovel telephone number
 	 */
-	public void addMigrante(String nome, int telemovel) {
+	public void addMigrante(String nome, int telemovel, int numFamiliares) {
 		users.add(new Utilizador(telemovel));
-		migrantes.add(new Migrante(nome, telemovel));
+		migrantes.add(new Migrante(nome, telemovel, numFamiliares));
 	}
 	
 	/**
@@ -42,7 +42,18 @@ public class CatalogoUtilizadores {
 	
 	public Migrante getMigrante(int telemovel) {
 		for (Migrante m : migrantes) {
-			
+			if (telemovel == m.getTelephoneNumber()) {
+				return m;
+			}
+		}
+		return null;
+	}
+	
+	public Voluntario getVoluntario(int telemovel) {
+		for (Voluntario v : voluntarios) {
+			if (telemovel == v.getTelephoneNumber()) {
+				return v;
+			}
 		}
 		return null;
 	}
