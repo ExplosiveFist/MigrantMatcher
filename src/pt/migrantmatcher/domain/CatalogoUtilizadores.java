@@ -17,6 +17,12 @@ public class CatalogoUtilizadores {
 		this.users = new ArrayList<Utilizador>();
 		this.voluntarios = new ArrayList<Voluntario>();
 		this.migrantes = new ArrayList<Migrante>();
+		
+		//Voluntarios com identificação
+		addVoluntario(918376458);
+		addVoluntario(987654321);
+		addVoluntario(999000999);
+		
 	}
 	
 	/**
@@ -34,9 +40,9 @@ public class CatalogoUtilizadores {
 	 * @param nome migrant's name
 	 * @param telemovel telephone number
 	 */
-	public void addVoluntario(int codigo, int telemovel) {
+	public void addVoluntario(int telemovel) {
 		users.add(new Utilizador(telemovel));
-		voluntarios.add(new Voluntario(codigo, telemovel));
+		voluntarios.add(new Voluntario(telemovel));
 	}
 	
 	
