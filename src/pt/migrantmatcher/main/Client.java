@@ -10,7 +10,8 @@ import pt.migrantmatcher.facade.handlers.AjudasHandler;
 import pt.migrantmatcher.facade.handlers.MigranteHandler;
 import pt.migrantmatcher.facade.dto.HelpDTO;
 import pt.migrantmatcher.facade.dto.RegionDTO;
-import com.pidgeonsmssender.sdk.*;
+import pt.migrantmatcher.facade.dto.SMSDTO;
+
 
 public class Client{
 	
@@ -24,7 +25,7 @@ public class Client{
 		
 		ah.verificarUtilizador(918376458);
 		
-		SMS sms;
+		SMSDTO sms;
 		System.out.println("Please indicate your help type:");
 		Random r  = new Random ();
 		if(r.nextBoolean()) { // Alojamento
@@ -44,7 +45,7 @@ public class Client{
 		}
 		
 		System.out.println("Insert the code sent to your number to confirm the pending help.");
-		ah.insereriCodigoUnico(sms.code);
+		ah.inserirCodigoUnico(sms.getCode());
 		System.out.println("Your Help as been submitted! \n");
 		
 		
@@ -93,17 +94,17 @@ public class Client{
 			
 			//Takes a random number of elements from the help list
 			int numberOfHelps = r.nextInt(helpList.size());
-			List<HelpDTO> helpsChoosen = new ArrayList<>();
+			List<HelpDTO> helpsChosen = new ArrayList<>();
 			int helpIndex;
 			
 			for(int i = 0; i < numberOfHelps; i++) {
 				 helpIndex = r.nextInt(helpList.size());
-				 helpsChoosen.add(helpList.get(helpIndex));
+				 helpsChosen.add(helpList.get(helpIndex));
 				 helpList.remove(helpIndex);
 			}
 			System.out.println("Pick the help offers you want to get");
-			for (int i = 0; i < helpsChoosen.size(); i++) {
-				mh.escolherTipoDeAjuda(helpsChoosen.get(i));
+			for (int i = 0; i < helpsChosen.size(); i++) {
+				mh.escolherTipoDeAjuda(helpsChosen.get(i));
 			}
 			
 			mh.confirmar();

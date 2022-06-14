@@ -9,7 +9,7 @@ public class SMS {
 	public SMS(Voluntario v) {
 		
 		this.num = v.getTelephoneNumber();
-		
+	
 	}
 
 }

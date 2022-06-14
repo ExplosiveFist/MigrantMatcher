@@ -3,17 +3,17 @@ package pt.migrantmatcher.facade.dto;
 
 public class RegionDTO{
 	
-	private String region;
+	private String name;
 	
 	public RegionDTO(String r) {
 		
-		this.region = r;
+		this.name = r;
 		
 	}
 	
-	public String getRegion() {
+	public String getName() {
 		
-		return this.region;
+		return this.name;
 	}
 	
 }
