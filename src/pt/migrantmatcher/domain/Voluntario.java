@@ -27,9 +27,9 @@ public class Voluntario extends Utilizador {
 		ajudas.add(ajuda);
 	}
 
-	public void createAlojamento(int i) {
+	public void createAlojamento(int i, String date) {
 		
-		currentHelp = new Alojamento(i);
+		currentHelp = new Alojamento(i, date);
 		
 	}
 
@@ -66,8 +66,8 @@ public class Voluntario extends Utilizador {
 	}
 	
 
-	public SMSDTO createDoacao(String desc) {
-		currentHelp = new Doacao(desc);
+	public SMSDTO createDoacao(String desc, String date) {
+		currentHelp = new Doacao(desc, date);
 		return createSMS();
 	}
 

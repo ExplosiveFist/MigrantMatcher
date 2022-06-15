@@ -2,6 +2,7 @@ package pt.migrantmatcher.facade.dto;
 
 public class AjudasDTOBuilder {
 
+	private String date;
 	private String code;
 	private int ownerPhone;
 	private String type;
@@ -10,6 +11,11 @@ public class AjudasDTOBuilder {
 	
 	public AjudasDTOBuilder setCode(String c) {
 		this.code = c;
+		return this;
+	}
+
+	public AjudasDTOBuilder setDate(String d) {
+		this.date = d;
 		return this;
 	}
 	
@@ -34,7 +40,7 @@ public class AjudasDTOBuilder {
 	}
 	
 	public AjudasDTO build() {
-		return new AjudasDTO(type, ownerPhone, code, desc, region);
+		return new AjudasDTO(type, ownerPhone, code, desc, region, date);
 	}
 	
 	

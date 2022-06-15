@@ -43,6 +43,7 @@ public class CatalogoAjudas {
 								.setRegion(ajuda.getRegiaoAjuda().getNome())
 								.setDesc("Alojamento para " + 
 										((Alojamento) ajuda).getNumPessoasAlojamento() + " pessoas")
+								.setDate(ajuda.getDate())
 								.build();
 				
 				help.setNum(((Alojamento) ajuda).getNumPessoasAlojamento());
@@ -56,6 +57,7 @@ public class CatalogoAjudas {
 								.setCode(ajuda.getCode())
 								.setDesc("Item disponível:  " + 
 										((Doacao) ajuda).getDescricao())
+								.setDate(ajuda.getDate())
 								.build();
 				
 				help.setDescDono(((Doacao) ajuda).getDescricao());
@@ -85,13 +87,15 @@ public class CatalogoAjudas {
 		return 	   ajuda.getAjudaOwner().getTelephoneNumber() == ajudaDTO.getOwner()
 				&& ajuda.getRegiaoAjuda().getNome().equals(ajudaDTO.getRegion())
 				&& ajuda.getCode().equals(ajudaDTO.getCode())
-				&& ((Alojamento) ajuda).getNumPessoasAlojamento() == ajudaDTO.getNum();
+				&& ((Alojamento) ajuda).getNumPessoasAlojamento() == ajudaDTO.getNum()
+				&& ajuda.getDate().equals(ajudaDTO.getDate());
 		}
   else  if(ajuda instanceof Doacao && ajudaDTO.getType().equals("Doação")){
 	  
 	  	return     ajuda.getAjudaOwner().getTelephoneNumber() == ajudaDTO.getOwner()
 				&& ajuda.getCode().equals(ajudaDTO.getCode())
-				&& ((Doacao) ajuda).getDescricao().equals(ajudaDTO.getDescDono());
+				&& ((Doacao) ajuda).getDescricao().equals(ajudaDTO.getDescDono())
+				&& ajuda.getDate().equals(ajudaDTO.getDate());
 		}
 		
 		

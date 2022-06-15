@@ -10,17 +10,19 @@ public class AjudasDTO{
 	private String desc;
 	private int ownerPhone;
 	private String code;
+	private String date;
 	
 	private int numAloj;
 	private String descDono;
 	
-	public AjudasDTO(String t, int o, String c, String d, String r) {
+	public AjudasDTO(String t, int o, String c, String d, String r, String da) {
 		
 		this.type = t;
 		this.ownerPhone = o;
 		this.code = c;	
 		this.desc = d;
 		this.region = r;
+		this.date = da;
 		
 	}
 	
@@ -32,6 +34,9 @@ public class AjudasDTO{
 	}
 	public String getDesc() {
 		return desc;	
+	}
+	public String getDate() {
+		return date;	
 	}
 	
 	public int getOwner() {

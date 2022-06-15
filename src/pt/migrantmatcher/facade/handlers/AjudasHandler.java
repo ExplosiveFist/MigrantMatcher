@@ -37,9 +37,9 @@ public class AjudasHandler {
 		
 	}
 
-	public List<RegionDTO> numPessoasAlojamento(int i) {
+	public List<RegionDTO> numPessoasAlojamento(int i, String date) {
 		
-		v_corrente.createAlojamento(i);
+		v_corrente.createAlojamento(i,date);
 		
 		return catRegions.getRegions();
 		
@@ -52,9 +52,9 @@ public class AjudasHandler {
 		return sms;
 	}
 
-	public SMSDTO descricaoItem(String desc) {
+	public SMSDTO descricaoItem(String desc, String date) {
 		
-		SMSDTO sms = v_corrente.createDoacao(desc);
+		SMSDTO sms = v_corrente.createDoacao(desc,date);
 		return sms;
 		
 		
