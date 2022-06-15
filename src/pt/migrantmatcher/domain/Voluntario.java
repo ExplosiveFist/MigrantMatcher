@@ -1,6 +1,7 @@
 package pt.migrantmatcher.domain;
 
 import java.util.List;
+import java.util.Random;
 
 import pt.migrantmatcher.facade.dto.SMSDTO;
 
@@ -52,9 +53,18 @@ public class Voluntario extends Utilizador {
 	}
 
 	private String generateCode() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Random r = new Random();
+
+	    String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	    StringBuilder bob = new StringBuilder();
+	    
+	    for (int i = 0; i < 5; i++) {
+	        bob.append(alphabet.charAt(r.nextInt(alphabet.length())));
+	    }
+		return bob.toString(); 
 	}
+	
 
 	public SMSDTO createDoacao(String desc) {
 		currentHelp = new Doacao(desc);
