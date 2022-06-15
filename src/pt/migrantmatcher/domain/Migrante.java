@@ -7,20 +7,32 @@ import java.util.ArrayList;
 public class Migrante extends Utilizador {
 	
 	private String nome;
-	private List<String> family;
+	private String [] family;
 	private List<Ajuda> ajudas;
 
-	public Migrante(String nome, int telemovel, int numFamiliares) {
+	public Migrante(String nome, int telemovel) {
 		super(telemovel);
 		this.nome = nome;
 		
-		if (numFamiliares > 0) {
-			family = new ArrayList<String>(numFamiliares);
-		}
+		
 	}
 	
-	public void addFamilyMember(String name) {
-		family.add(name);
+	public void setFamily(int numFamiliares) {
+		
+		if (numFamiliares > 0) {
+			family = new String[numFamiliares];
+		}
+		
+	}
+	
+	public boolean addFamilyMember(String name) {
+		for (int i = 0; i < family.length; i++) {
+			if(family[i] == null) {
+				family[i] = name;
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public void addAjuda(Ajuda ajuda) {

@@ -29,20 +29,35 @@ public class CatalogoUtilizadores {
 	 * Adds Migrant object to catalogs
 	 * @param nome migrant's name
 	 * @param telemovel telephone number
+	 * @return 
 	 */
-	public void addMigrante(String nome, int telemovel, int numFamiliares) {
-		users.add(new Utilizador(telemovel));
-		migrantes.add(new Migrante(nome, telemovel, numFamiliares));
+	public Migrante addMigrante(String nome, int telemovel) {
+		
+		Migrante m = new Migrante(nome, telemovel);
+		users.add(m);
+		migrantes.add(m);
+		
+		return m;
 	}
 	
+	public Migrante addMigrante(String nome, int telemovel, int numFamiliares) {
+		Migrante m = new Migrante(nome, telemovel);
+		m.setFamily(numFamiliares);
+		
+		users.add(m);
+		migrantes.add(m);
+		
+		return m;
+	}
 	/**
 	 * Adds Voluntario object to catalogs
 	 * @param nome migrant's name
 	 * @param telemovel telephone number
 	 */
 	public void addVoluntario(int telemovel) {
-		users.add(new Utilizador(telemovel));
-		voluntarios.add(new Voluntario(telemovel));
+		Voluntario v = new Voluntario(telemovel);
+		users.add(v);
+		voluntarios.add(v);
 	}
 	
 	

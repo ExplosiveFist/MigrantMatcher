@@ -25,12 +25,12 @@ public class MigranteHandler {
 	}
 
 	public void registarMigrante(String nome, int num) {
-		m_corrente = catUser.registerSolo(num,nome);
+		m_corrente = catUser.addMigrante(nome,num);
 	}
 
 	public void registarFamily(int familyNumber, String nome, int num) {
 		
-		m_corrente = catUser.registerFamily(familyNumber,nome,num);
+		m_corrente = catUser.addMigrante(nome,num,familyNumber);
 		
 	}
 
