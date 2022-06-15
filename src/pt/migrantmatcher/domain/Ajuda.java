@@ -5,6 +5,7 @@ public class Ajuda {
 	
 	private Regiao region;
 	private Voluntario owner;
+	private String code;
 
 	public Ajuda() {
 		
@@ -23,15 +24,18 @@ public class Ajuda {
 		
 	}
 
-	public void registerHelp() {
-		
-		
-	}
 
 	public void setOwner(Voluntario v) {
 		
 		this.owner = v;
 		
+	}
+	
+	public void setCode(String s) {
+		this.code = s;
+	}
+	public String getCode() {
+		return code;
 	}
 	
 }
