@@ -1,4 +1,4 @@
-package pt.migrantmatcher.domain;
+package pt.migrantmatcher.domain.catalogos;
 
 
 import java.util.ArrayList;

@@ -1,7 +1,7 @@
 package pt.migrantmatcher.utils.plugins;
 
 
-import com.pidgeonsmssender.*;
+
 import com.pidgeonsmssender.sdk.PidgeonSMSSender;
 
 

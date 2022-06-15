@@ -2,11 +2,10 @@ package pt.migrantmatcher.facade.handlers;
 
 import java.util.List;
 
-import pt.migrantmatcher.domain.CatalogoAjudas;
-import pt.migrantmatcher.domain.CatalogoRegioes;
-import pt.migrantmatcher.domain.CatalogoUtilizadores;
 import pt.migrantmatcher.domain.Migrante;
-
+import pt.migrantmatcher.domain.catalogos.CatalogoAjudas;
+import pt.migrantmatcher.domain.catalogos.CatalogoRegioes;
+import pt.migrantmatcher.domain.catalogos.CatalogoUtilizadores;
 import pt.migrantmatcher.facade.dto.AjudasDTO;
 import pt.migrantmatcher.facade.dto.RegionDTO;
 

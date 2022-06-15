@@ -1,9 +1,9 @@
 package pt.migrantmatcher.facade;
 
 
-import pt.migrantmatcher.domain.CatalogoAjudas;
-import pt.migrantmatcher.domain.CatalogoRegioes;
-import pt.migrantmatcher.domain.CatalogoUtilizadores;
+import pt.migrantmatcher.domain.catalogos.CatalogoAjudas;
+import pt.migrantmatcher.domain.catalogos.CatalogoRegioes;
+import pt.migrantmatcher.domain.catalogos.CatalogoUtilizadores;
 import pt.migrantmatcher.facade.handlers.AjudasHandler;
 import pt.migrantmatcher.facade.handlers.MigranteHandler;
 

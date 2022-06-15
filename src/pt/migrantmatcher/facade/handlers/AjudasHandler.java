@@ -3,12 +3,12 @@ package pt.migrantmatcher.facade.handlers;
 import java.util.List;
 
 import pt.migrantmatcher.domain.Ajuda;
-import pt.migrantmatcher.domain.CatalogoAjudas;
-import pt.migrantmatcher.domain.CatalogoRegioes;
-import pt.migrantmatcher.domain.CatalogoUtilizadores;
 import pt.migrantmatcher.facade.dto.RegionDTO;
 import pt.migrantmatcher.facade.dto.SMSDTO;
 import pt.migrantmatcher.domain.Voluntario;
+import pt.migrantmatcher.domain.catalogos.CatalogoAjudas;
+import pt.migrantmatcher.domain.catalogos.CatalogoRegioes;
+import pt.migrantmatcher.domain.catalogos.CatalogoUtilizadores;
 
 public class AjudasHandler {
 	

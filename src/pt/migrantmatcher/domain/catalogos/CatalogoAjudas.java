@@ -1,10 +1,14 @@
-package pt.migrantmatcher.domain;
+package pt.migrantmatcher.domain.catalogos;
 
 import java.util.List;
 
+import pt.migrantmatcher.domain.Ajuda;
+import pt.migrantmatcher.domain.Alojamento;
+import pt.migrantmatcher.domain.Doacao;
+import pt.migrantmatcher.domain.Regiao;
 import pt.migrantmatcher.facade.dto.AjudasDTO;
 import pt.migrantmatcher.facade.dto.AjudasDTOBuilder;
-import pt.migrantmatcher.facade.dto.RegionDTO;
+
 
 import java.util.ArrayList;
 

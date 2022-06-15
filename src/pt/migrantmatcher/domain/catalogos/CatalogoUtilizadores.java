@@ -1,6 +1,11 @@
-package pt.migrantmatcher.domain;
+package pt.migrantmatcher.domain.catalogos;
 
 import java.util.List;
+
+import pt.migrantmatcher.domain.Migrante;
+import pt.migrantmatcher.domain.Utilizador;
+import pt.migrantmatcher.domain.Voluntario;
+
 import java.util.ArrayList;
 
 
