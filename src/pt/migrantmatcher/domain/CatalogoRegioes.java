@@ -1,6 +1,6 @@
 package pt.migrantmatcher.domain;
 
-import java.util.Iterator;
+
 import java.util.List;
 
 import pt.migrantmatcher.facade.dto.RegionDTO;
@@ -42,7 +42,6 @@ public class CatalogoRegioes {
 			}
 		}
 		return null;
-		
 	}
 
 }
