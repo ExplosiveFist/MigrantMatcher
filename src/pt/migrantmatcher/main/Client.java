@@ -19,7 +19,7 @@ public class Client{
 		AjudasHandler ah = MigrantMatcher.getInstance().getAjudasHandler();
 		System.out.println("Please introduce your phone number");
 		
-		ah.verificarUtilizador(918376458);
+		ah.verificarUtilizador(918376458); //Exception number not recognized
 		
 		SMSDTO sms;
 		System.out.println("Please indicate your help type:");
@@ -28,12 +28,15 @@ public class Client{
 			
 			List<RegionDTO> regions = ah.numPessoasAlojamento(5);
 			
-			System.out.println("Available reigions: \n" + regions);
-			System.out.println("Please choose an available region.");
-			int choice = r.nextInt(regions.size()); //Simula escolha de regiao
-				
-			sms = ah.regiaoPaisAlojamento(regions.get(choice)); //DTO de sms?
+			System.out.println("Available reigions: \n");
+			for (RegionDTO regionDTO : regions) {
+				System.out.println(regionDTO.getName());
+			}
 			
+			System.out.println("Please choose an available region.");
+			int choice = r.nextInt(regions.size());                    //Simula escolha de regiao
+				
+			sms = ah.regiaoPaisAlojamento(regions.get(choice)); 
 		}
 		else { // Item
 			

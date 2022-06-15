@@ -1,6 +1,7 @@
 package pt.migrantmatcher.domain;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import pt.migrantmatcher.facade.dto.RegionDTO;
@@ -12,6 +13,8 @@ public class CatalogoRegioes {
 	private List<RegionDTO> regionsDTO;
 	
 	public CatalogoRegioes() {
+		this.regions = new ArrayList<Regiao>();
+		this.regionsDTO = new ArrayList<RegionDTO>();
 		
 		regions.add(new Regiao("Lisboa"));
 		regions.add(new Regiao("Norte"));

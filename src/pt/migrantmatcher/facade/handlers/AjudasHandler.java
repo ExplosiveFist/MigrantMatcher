@@ -32,6 +32,9 @@ public class AjudasHandler {
 		if(v_corrente == null) {
 			System.out.println("Exception"); //TODO Não tem voluntário registado com este número
 		}
+		else {
+			System.out.println("Success!");
+		}
 		
 	}
 

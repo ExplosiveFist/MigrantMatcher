@@ -6,10 +6,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/explo/eclipse-workspace/Migrant-Matcher/lib/smsproviders.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/explo/eclipse-workspace/Migrant-Matcher/lib/smsproviders.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

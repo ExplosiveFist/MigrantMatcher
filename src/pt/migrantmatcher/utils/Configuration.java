@@ -8,12 +8,14 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Properties;
 
+
 import pt.migrantmatcher.utils.plugins.SMSProvider;
+
 
 public class Configuration {
 
 	private static Configuration INSTANCE = new Configuration();
-	private SMSProvider provider;
+	private SMSProvider provider; // default
 	
 	public static Configuration getInstance() {
 		return INSTANCE;
@@ -28,10 +30,12 @@ public class Configuration {
 			prop.load(new FileInputStream(new File("smsprovider.properties")));
 			
 			String className =  prop.getProperty("smsprovider");
-			@SuppressWarnings("unchecked")
-			Class<SMSProvider> klass = (Class<SMSProvider>) Class.forName(className);
-			Constructor <SMSProvider> cons = klass.getConstructor();
-			provider = cons.newInstance();
+			
+			
+			
+			Class<?> klass = Class.forName(className);
+			Constructor <?> cons = klass.getConstructor();
+			provider = (SMSProvider) cons.newInstance();
 			
 			
 		} catch (FileNotFoundException e) {
@@ -68,6 +72,7 @@ public class Configuration {
 	public SMSProvider getProvider() {
 		return this.provider;
 	}
+	
 	
 	
 	
