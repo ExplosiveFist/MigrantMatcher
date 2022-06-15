@@ -9,9 +9,9 @@ public class PidgeonSMSAdapter implements SMSProvider {
 	PidgeonSMSSender ps = new PidgeonSMSSender();
 
 	@Override
-	public void send(String num, String txt) {
+	public void send(int num, String txt) {
 		
-		ps.send(num, txt);
+		ps.send(String.valueOf(num), txt);
 		
 	}
 	

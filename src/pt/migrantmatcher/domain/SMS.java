@@ -1,12 +1,13 @@
 package pt.migrantmatcher.domain;
 
+import pt.migrantmatcher.utils.Configuration;
 import pt.migrantmatcher.utils.plugins.SMSProvider;
 
 public class SMS {
 	
-	public String code;
-	public int num;
-	public String txt;
+	private String code;
+	private int num;
+	private String txt;
 	
 	public SMS(int num) {
 		
@@ -21,9 +22,13 @@ public class SMS {
 	public void setMsg(String msg) {
 		this.txt = msg;
 	}
+	
+	public String getCode() {
+		return this.code;
+	}
 
 	public void send() {
-		// TODO Auto-generated method stub
-		
+		SMSProvider p = Configuration.getInstance().getProvider();
+		p.send(num, txt);
 	}
 }

@@ -7,9 +7,9 @@ public class TelegramSMSAdapter implements SMSProvider {
 	TelegramSMSSender ts = new TelegramSMSSender();
 
 	@Override
-	public void send(String num, String txt) {
+	public void send(int num, String txt) {
 		
-		ts.setNumber(num);
+		ts.setNumber(String.valueOf(num));
 		ts.setText(txt);
 		ts.send();
 		

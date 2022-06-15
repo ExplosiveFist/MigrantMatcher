@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class Voluntario extends Utilizador {
 	
-	private String codigo;
+	private SMS sms;
 	private List<Ajuda> ajudas;
 	private Ajuda currentHelp;
 	
@@ -41,11 +41,12 @@ public class Voluntario extends Utilizador {
 	private SMSDTO createSMS() {
 		SMS sms = new SMS(getTelephoneNumber());
 		String code = generateCode();
-		this.codigo = code;
+		
 		sms.setCode(code);
 		sms.setMsg("Please confirm the code " + code);
+		this.sms = sms;
 		
-		//sms.send()
+		sms.send();
 		
 		return new SMSDTO(code);
 	}
@@ -61,7 +62,7 @@ public class Voluntario extends Utilizador {
 	}
 
 	public Ajuda verificarCodigo(String code) {
-		if(this.codigo == code) {
+		if(this.sms.getCode().equals(code)) {
 			addAjuda(this.currentHelp);
 			return this.currentHelp;
 		}
