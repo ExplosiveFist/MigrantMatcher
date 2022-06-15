@@ -3,7 +3,7 @@ package pt.migrantmatcher.domain;
 
 public class Utilizador {
 
-	private int telemovel; 
+	protected int telemovel; 
 	
 	/**
 	 * Class constructor for Utilizador class

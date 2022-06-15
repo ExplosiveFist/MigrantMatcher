@@ -6,6 +6,7 @@ public class Ajuda {
 	private Regiao region;
 	private Voluntario owner;
 	private String code;
+	protected String date;
 
 	public Ajuda() {
 		
@@ -36,6 +37,9 @@ public class Ajuda {
 	}
 	public String getCode() {
 		return code;
+	}
+	public String getDate() {
+		return date;
 	}
 	
 }

@@ -4,8 +4,9 @@ public class Alojamento extends Ajuda {
 	
 	private int numPessoas;
 	
-	public Alojamento(int numPessoas) {	
+	public Alojamento(int numPessoas, String date) {	
 		this.numPessoas = numPessoas;
+		this.date = date;
 	}
 	
 	public Regiao getRegiaoAlojamento() {
