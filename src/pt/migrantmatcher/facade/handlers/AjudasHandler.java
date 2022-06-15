@@ -6,7 +6,6 @@ import pt.migrantmatcher.domain.Ajuda;
 import pt.migrantmatcher.domain.CatalogoAjudas;
 import pt.migrantmatcher.domain.CatalogoRegioes;
 import pt.migrantmatcher.domain.CatalogoUtilizadores;
-import pt.migrantmatcher.domain.Regiao;
 import pt.migrantmatcher.facade.dto.RegionDTO;
 import pt.migrantmatcher.facade.dto.SMSDTO;
 import pt.migrantmatcher.domain.Voluntario;
@@ -48,9 +47,7 @@ public class AjudasHandler {
 
 	public SMSDTO regiaoPaisAlojamento(RegionDTO regionDTO) {
 		
-		Regiao region = catRegions.getRegion(regionDTO);
-		
-		SMSDTO sms = v_corrente.setRegionAloj(region);
+		SMSDTO sms = v_corrente.setRegionAloj( catRegions.getRegion(regionDTO));
 		
 		return sms;
 	}
