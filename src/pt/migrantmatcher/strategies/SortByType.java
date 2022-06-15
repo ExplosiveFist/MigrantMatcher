@@ -2,14 +2,15 @@ package pt.migrantmatcher.strategies;
 
 import java.util.List;
 
-import pt.migrantmatcher.domain.Ajuda;
+import pt.migrantmatcher.facade.dto.AjudasDTO;
 
 public class SortByType implements SortStrategy {
 
-	@Override
-	public void sortHelps(List<Ajuda> helplist) {
-		// TODO Auto-generated method stub
 
+	@Override
+	public void sortHelps(List<AjudasDTO> helplist) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
