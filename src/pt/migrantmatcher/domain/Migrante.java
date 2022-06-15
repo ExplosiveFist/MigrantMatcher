@@ -46,5 +46,10 @@ public class Migrante extends Utilizador {
 	public String getName() {
 		return nome;
 	}
+
+	public void saveHelpList(List<Ajuda> requested) {
+		this.ajudas = requested;
+		
+	}
 	
 }

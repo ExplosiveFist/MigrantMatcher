@@ -79,7 +79,7 @@ public class Client{
 		System.out.println("Please choose an available region.");
 		int choice = r.nextInt(regions.size());
 		
-		List<AjudasDTO> helpList = escolherRegiao(regions.get(choice)); //Ter em conta testes em que existem ajudas
+		List<AjudasDTO> helpList = mh.escolherRegiao(regions.get(choice)); //Ter em conta testes em que existem ajudas
 		
 		//Extensão 5a (Usa Observer)
 		if(helpList.isEmpty()) {

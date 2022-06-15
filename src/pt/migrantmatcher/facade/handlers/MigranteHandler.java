@@ -65,7 +65,10 @@ public class MigranteHandler {
 
 	public void escolherTipoDeAjuda(AjudasDTO ajudasDTO) {
 		
-		catAjudas.addRequested(ajudasDTO);
+		boolean success = catAjudas.addRequested(ajudasDTO);
+		if(success) {
+			System.out.println("Help '" + ajudasDTO.getType() + "' chosen successfully");
+		}
 		
 	}
 

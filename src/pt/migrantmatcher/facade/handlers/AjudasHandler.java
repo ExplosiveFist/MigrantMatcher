@@ -47,7 +47,7 @@ public class AjudasHandler {
 
 	public SMSDTO regiaoPaisAlojamento(RegionDTO regionDTO) {
 		
-		SMSDTO sms = v_corrente.setRegionAloj( catRegions.getRegion(regionDTO));
+		SMSDTO sms = v_corrente.setRegionAloj(catRegions.getRegion(regionDTO));
 		
 		return sms;
 	}
@@ -64,6 +64,7 @@ public class AjudasHandler {
 		
 	      Ajuda help = v_corrente.verificarCodigo(code); //Exceção wrong code
 	      help.setOwner(v_corrente);
+	      help.setCode(code);
 	      catAjudas.registerHelp(help);
 		
 	}

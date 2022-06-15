@@ -63,14 +63,15 @@ public class CatalogoAjudas {
 		return available;
 	}
 
-	public void addRequested(AjudasDTO ajudaDTO) {
+	public boolean addRequested(AjudasDTO ajudaDTO) {
 		
 		for (Ajuda ajuda : ajudas) {
 				if(isAjudaEqual(ajuda,ajudaDTO)) {
 					this.requested.add(ajuda);
+					return true;
 				}	
 		}
-		
+		return false;
 	}
 
 	private boolean isAjudaEqual(Ajuda ajuda, AjudasDTO ajudaDTO) {

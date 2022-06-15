@@ -33,7 +33,7 @@ public class MigrantMatcher {
 	
 	public MigranteHandler getMigranteHandler() {
 		
-		return new MigranteHandler(catA,catR);
+		return new MigranteHandler(catA,catR,catU);
 		
 	}
 	
