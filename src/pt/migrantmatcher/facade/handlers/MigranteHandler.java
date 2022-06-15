@@ -36,7 +36,10 @@ public class MigranteHandler {
 
 	public void registerMember(String nome) {
 		
-		m_corrente.registarMembro(nome); //Need check?
+		boolean isFull = m_corrente.addFamilyMember(nome);
+		if(isFull){
+			//Need exception?
+		}
 		
 	}
 
@@ -48,7 +51,7 @@ public class MigranteHandler {
 	public List<AjudasDTO> escolherRegiao(RegionDTO regionDTO) {
 		
 		
-		List<AjudasDTO> availableHelps = catAjudas.getAvailableHelps(regionDTO);
+		List<AjudasDTO> availableHelps = catAjudas.getAvailableHelps(catRegions.getRegion(regionDTO));
 		
 		
 		return availableHelps;
