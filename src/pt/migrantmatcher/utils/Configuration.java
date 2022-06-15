@@ -8,14 +8,15 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Properties;
 
-
+import pt.migrantmatcher.strategies.SortStrategy;
 import pt.migrantmatcher.utils.plugins.SMSProvider;
 
 
 public class Configuration {
 
 	private static Configuration INSTANCE = new Configuration();
-	private SMSProvider provider; // default
+	private SMSProvider provider;
+	private SortStrategy strategy;
 	
 	public static Configuration getInstance() {
 		return INSTANCE;
@@ -30,12 +31,16 @@ public class Configuration {
 			prop.load(new FileInputStream(new File("smsprovider.properties")));
 			
 			String className =  prop.getProperty("smsprovider");
-			
-			
+			String className2 = prop.getProperty("sortstrategy");
 			
 			Class<?> klass = Class.forName(className);
 			Constructor <?> cons = klass.getConstructor();
 			provider = (SMSProvider) cons.newInstance();
+			
+			Class<?> klass2 = Class.forName(className2);
+			Constructor <?> cons2 = klass2.getConstructor();
+			strategy = (SortStrategy) cons2.newInstance();
+			
 			
 			
 		} catch (FileNotFoundException e) {
@@ -71,6 +76,10 @@ public class Configuration {
 	
 	public SMSProvider getProvider() {
 		return this.provider;
+	}
+	
+	public SortStrategy getStrategy() {
+		return this.strategy;
 	}
 	
 	
