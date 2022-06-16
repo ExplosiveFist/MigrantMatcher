@@ -38,10 +38,12 @@ public class CatalogoRegioes {
 
 	public Regiao getRegion(RegionDTO regionDTO) {
 		
-		String name = regionDTO.getName();
-		for (Regiao regiao : regions) {
-			if(regiao.getNome().equals(name)) {
-				return regiao;
+		if(regionDTO != null) {
+			String name = regionDTO.getName();
+			for (Regiao regiao : regions) {
+				if(regiao.getNome().equals(name)) {
+					return regiao;
+				}
 			}
 		}
 		return null;

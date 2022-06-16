@@ -26,6 +26,7 @@ public class CatalogoAjudas {
 
 	public void registerHelp(Ajuda help) {
 		ajudas.add(help);
+		System.out.println("~~~~~~ Your help has been sucessfully recorded! ~~~~~~~");
 		
 	}
 

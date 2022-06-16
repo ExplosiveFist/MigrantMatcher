@@ -12,6 +12,7 @@ import pt.migrantmatcher.domain.catalogos.CatalogoUtilizadores;
 import pt.migrantmatcher.exceptions.NullHelpException;
 import pt.migrantmatcher.exceptions.VoluntaryNumberException;
 import pt.migrantmatcher.exceptions.WrongCodeException;
+import pt.migrantmatcher.exceptions.WrongRegionException;
 
 public class AjudasHandler {
 	
@@ -45,7 +46,7 @@ public class AjudasHandler {
 			 throw new VoluntaryNumberException("No voluntary currently identificated");
 		 }
 		v_corrente.createAlojamento(i,date);
-		
+		System.out.println("Please choose a region for your residency");
 		return catRegions.getRegions();
 		
 	}
@@ -57,7 +58,10 @@ public class AjudasHandler {
 		SMSDTO sms = null;
 		try {
 			sms = v_corrente.setRegionAloj(catRegions.getRegion(regionDTO));
+			
 		} catch (NullHelpException e) {
+			System.out.println(e.getMessage());
+		} catch (WrongRegionException e) {
 			System.out.println(e.getMessage());
 		}
 		

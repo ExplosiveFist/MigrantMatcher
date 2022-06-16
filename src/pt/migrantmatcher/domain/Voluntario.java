@@ -5,6 +5,7 @@ import java.util.Random;
 
 import pt.migrantmatcher.exceptions.NullHelpException;
 import pt.migrantmatcher.exceptions.WrongDateFormatException;
+import pt.migrantmatcher.exceptions.WrongRegionException;
 import pt.migrantmatcher.facade.dto.SMSDTO;
 
 import java.util.ArrayList;
@@ -42,9 +43,12 @@ public class Voluntario extends Utilizador {
 		
 	}
 
-	public SMSDTO setRegionAloj(Regiao region) throws NullHelpException {
+	public SMSDTO setRegionAloj(Regiao region) throws NullHelpException, WrongRegionException {
 		if(currentHelp == null) {
 			throw new NullHelpException("No Help saved under your account!");
+		}
+		if(region == null) {
+			throw new WrongRegionException("The region you choose is not available!");
 		}
 		else {
 			currentHelp.setRegion(region);
@@ -58,7 +62,7 @@ public class Voluntario extends Utilizador {
 		String code = generateCode();
 		
 		sms.setCode(code);
-		sms.setMsg("Please confirm the code " + code);
+		sms.setMsg("Please confirm the code " + code + " to register your help");
 		this.sms = sms;
 		
 		sms.send();
