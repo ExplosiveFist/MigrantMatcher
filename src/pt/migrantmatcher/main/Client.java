@@ -21,10 +21,12 @@ public class Client{
 		
 		ah.verificarUtilizador(918376458); //Exception number not recognized
 		
-		SMSDTO sms;
+		SMSDTO sms = null;
 		System.out.println("Please indicate your help type:");
+		
+		boolean pass = true;
 		Random r  = new Random ();
-		if(r.nextBoolean()) { // Alojamento
+		if(!pass) { // Alojamento
 			
 			List<RegionDTO> regions = ah.numPessoasAlojamento(5,"09/09/2021");
 			
@@ -38,7 +40,7 @@ public class Client{
 				
 			sms = ah.regiaoPaisAlojamento(regions.get(choice)); 
 		}
-		else { // Item
+		if(pass) { // Item
 			
 			sms = ah.descricaoItem("Batata frita: da boa","09/09/2021");
 		}
@@ -96,7 +98,7 @@ public class Client{
 			List<AjudasDTO> helpsChosen = new ArrayList<>();
 			int helpIndex;
 			
-			for(int i = 0; i < numberOfHelps; i++) {
+			for(int i = -1; i < numberOfHelps; i++) { // forces at least one choice
 				 helpIndex = r.nextInt(helpList.size());
 				 helpsChosen.add(helpList.get(helpIndex));
 				 helpList.remove(helpIndex);
