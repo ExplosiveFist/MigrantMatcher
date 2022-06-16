@@ -22,6 +22,7 @@ public class Ajuda {
 
 	public void setRegion(Regiao r) {
 		this.region = r;
+		r.notifyObservers("Novo Alojamento na região de(o) " + r.getNome() + " !");
 		
 	}
 

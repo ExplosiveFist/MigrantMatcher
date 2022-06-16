@@ -2,9 +2,11 @@ package pt.migrantmatcher.domain;
 
 import java.util.List;
 
+import pt.migrantmatcher.utils.Observer;
 
 
-public class Migrante extends Utilizador {
+
+public class Migrante extends Utilizador implements Observer {
 	
 	private String nome;
 	private String [] family;
@@ -49,6 +51,15 @@ public class Migrante extends Utilizador {
 
 	public void saveHelpList(List<Ajuda> requested) {
 		this.ajudas = requested;
+		
+	}
+
+	@Override
+	public void update(String msg) {
+		System.out.println("\n--------------------------------------\n");
+		System.out.println("Notificação para " + this.nome + " (" + this.telemovel + ") :");
+		System.out.println(msg);
+		System.out.println("\n--------------------------------------\n");
 		
 	}
 	

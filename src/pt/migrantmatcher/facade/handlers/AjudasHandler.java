@@ -55,6 +55,7 @@ public class AjudasHandler {
 	public SMSDTO descricaoItem(String desc, String date) {
 		
 		SMSDTO sms = v_corrente.createDoacao(desc,date);
+		catRegions.publish();
 		return sms;
 		
 		

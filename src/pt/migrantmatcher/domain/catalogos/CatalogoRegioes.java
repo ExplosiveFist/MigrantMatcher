@@ -47,4 +47,11 @@ public class CatalogoRegioes {
 		return null;
 	}
 
+	public void publish() {
+		for (Regiao regiao : regions) {
+			regiao.notifyObservers("Novo item como doação disponível no país");
+		}
+		
+	}
+
 }

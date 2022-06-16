@@ -58,7 +58,8 @@ public class MigranteHandler {
 	}
 
 	public void notifyMe(RegionDTO regionDTO) {
-		//TODO
+		
+		catRegions.getRegion(regionDTO).addObserver(m_corrente);
 		
 	}
 
