@@ -51,6 +51,14 @@ public class Voluntario extends Utilizador {
 		
 		return new SMSDTO(code);
 	}
+	
+	public void sendSMS(String msg) {
+		
+		SMS sms = new SMS(getTelephoneNumber());
+		sms.setMsg(msg);
+		sms.send();
+		
+	}
 
 	private String generateCode() {
 		

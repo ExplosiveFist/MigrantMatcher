@@ -110,7 +110,9 @@ public class CatalogoAjudas {
 	}
 
 	public void sendSMS() {
-		// TODO Auto-generated method stub
+		for (Ajuda ajuda : requested) {
+			ajuda.getAjudaOwner().sendSMS("Your help has been accepted!");
+		}
 		
 	}
 }
