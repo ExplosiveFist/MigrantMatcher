@@ -26,7 +26,7 @@ public class Client{
 		Random r  = new Random ();
 		if(r.nextBoolean()) { // Alojamento
 			
-			List<RegionDTO> regions = ah.numPessoasAlojamento(5,"09/09/21");
+			List<RegionDTO> regions = ah.numPessoasAlojamento(5,"09/09/2021");
 			
 			System.out.println("Available reigions: \n");
 			for (RegionDTO regionDTO : regions) {
@@ -40,7 +40,7 @@ public class Client{
 		}
 		else { // Item
 			
-			sms = ah.descricaoItem("Batata frita: da boa","09/09/21");
+			sms = ah.descricaoItem("Batata frita: da boa","09/09/2021");
 		}
 		
 		System.out.println("Insert the code sent to your number to confirm the pending help.");

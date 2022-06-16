@@ -8,7 +8,8 @@ import pt.migrantmatcher.domain.Doacao;
 import pt.migrantmatcher.domain.Regiao;
 import pt.migrantmatcher.facade.dto.AjudasDTO;
 import pt.migrantmatcher.facade.dto.AjudasDTOBuilder;
-
+import pt.migrantmatcher.utils.Configuration;
+import pt.migrantmatcher.strategies.SortStrategy;
 
 import java.util.ArrayList;
 
@@ -20,7 +21,7 @@ public class CatalogoAjudas {
 	
 	public CatalogoAjudas() {
 		this.ajudas = new ArrayList<Ajuda>();
-		this.requested = new ArrayList<Ajuda>();
+		
 	}
 
 	public void registerHelp(Ajuda help) {
@@ -66,11 +67,13 @@ public class CatalogoAjudas {
 			
 			
 		}
+		SortStrategy strategy  = Configuration.getInstance().getStrategy();
+		strategy.sortHelps(available);
 		return available;
 	}
 
 	public boolean addRequested(AjudasDTO ajudaDTO) {
-		
+		this.requested = new ArrayList<Ajuda>();
 		for (Ajuda ajuda : ajudas) {
 				if(isAjudaEqual(ajuda,ajudaDTO)) {
 					this.requested.add(ajuda);
