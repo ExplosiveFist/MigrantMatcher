@@ -3,6 +3,7 @@ package pt.migrantmatcher.main;
 import pt.migrantmatcher.exceptions.NullMigrantException;
 import pt.migrantmatcher.exceptions.VoluntaryNumberException;
 import pt.migrantmatcher.exceptions.WrongCodeException;
+import pt.migrantmatcher.exceptions.WrongRegionException;
 import pt.migrantmatcher.facade.*;
 import pt.migrantmatcher.facade.handlers.*;
 import pt.migrantmatcher.facade.dto.*;
@@ -124,6 +125,9 @@ public class Client{
 		}
 		}catch (NullMigrantException e) {
 			e.getMessage();
+		} catch (WrongRegionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	
 		

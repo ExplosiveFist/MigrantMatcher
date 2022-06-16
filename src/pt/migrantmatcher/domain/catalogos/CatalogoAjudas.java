@@ -31,6 +31,9 @@ public class CatalogoAjudas {
 	}
 
 	public List<AjudasDTO> getAvailableHelps(Regiao regiao) {
+		if(regiao == null) {
+			return null;
+		}
 		List<AjudasDTO> available = new ArrayList<AjudasDTO>();
 		
 		for (Ajuda ajuda : ajudas) {
@@ -74,6 +77,10 @@ public class CatalogoAjudas {
 	}
 
 	public boolean addRequested(AjudasDTO ajudaDTO) {
+		
+		if(ajudaDTO == null) {
+			return false;
+		}
 		this.requested = new ArrayList<Ajuda>();
 		for (Ajuda ajuda : ajudas) {
 				if(isAjudaEqual(ajuda,ajudaDTO)) {

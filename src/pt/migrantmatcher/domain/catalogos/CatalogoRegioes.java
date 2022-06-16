@@ -51,7 +51,7 @@ public class CatalogoRegioes {
 
 	public void publish() {
 		for (Regiao regiao : regions) {
-			regiao.notifyObservers("Novo item como doação disponível no país");
+			regiao.notifyObservers("Novo item (doação) disponível no país");
 		}
 		
 	}

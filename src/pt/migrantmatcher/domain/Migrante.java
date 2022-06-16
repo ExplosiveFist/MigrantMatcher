@@ -27,6 +27,10 @@ public class Migrante extends Utilizador implements Observer {
 		
 	}
 	
+	public String [] getFam() {
+		return this.family;
+	}
+	
 	public boolean addFamilyMember(String name) {
 		
 		if(family != null) {

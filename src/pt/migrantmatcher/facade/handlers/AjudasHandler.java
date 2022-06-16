@@ -26,6 +26,7 @@ public class AjudasHandler {
 		this.catUser = catU;
 		this.catRegions = catR;
 		this.catAjudas = catA;
+		System.out.println("Please introduce your phone number");
 	}
 
 	public void verificarUtilizador(int num) throws VoluntaryNumberException {
