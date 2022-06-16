@@ -1,5 +1,8 @@
 package pt.migrantmatcher.main;
 
+import pt.migrantmatcher.exceptions.NullMigrantException;
+import pt.migrantmatcher.exceptions.VoluntaryNumberException;
+import pt.migrantmatcher.exceptions.WrongCodeException;
 import pt.migrantmatcher.facade.*;
 import pt.migrantmatcher.facade.handlers.*;
 import pt.migrantmatcher.facade.dto.*;
@@ -13,22 +16,23 @@ public class Client{
 	
 	public static void main(String [] args) {
 		
-		
+		Random r  = new Random ();
+		try {
 		//UC1
 		System.out.println("-----REGISTING HELP FROM VOLUNTARY----");
 		AjudasHandler ah = MigrantMatcher.getInstance().getAjudasHandler();
 		System.out.println("Please introduce your phone number");
 		
-		ah.verificarUtilizador(918376458); //Exception number not recognized
+		ah.verificarUtilizador(918376458);
 		
 		SMSDTO sms = null;
 		System.out.println("Please indicate your help type:");
 		
 		boolean pass = true;
-		Random r  = new Random ();
-		if(!pass) { // Alojamento
+		
+		if(pass) { // Alojamento
 			
-			List<RegionDTO> regions = ah.numPessoasAlojamento(5,"09/09/2021");
+			List<RegionDTO> regions = ah.numPessoasAlojamento(5,"aa/09/2021");
 			
 			System.out.println("Available reigions: \n");
 			for (RegionDTO regionDTO : regions) {
@@ -40,7 +44,7 @@ public class Client{
 				
 			sms = ah.regiaoPaisAlojamento(regions.get(choice)); 
 		}
-		if(pass) { // Item
+		if(!pass) { // Item
 			
 			sms = ah.descricaoItem("Batata frita: da boa","09/09/2021");
 		}
@@ -49,9 +53,16 @@ public class Client{
 		ah.inserirCodigoUnico(sms.getCode());
 		System.out.println("Your Help as been submitted! \n");
 		
+		} catch (VoluntaryNumberException e) {
+			System.out.println(e.getMessage());
+		} //Exception number not recognized
+			catch (WrongCodeException e) {
+			System.out.println(e.getMessage());
+		}
 		
 		
 		//UC2
+		try {
 		System.out.println("-----REGISTING HELP REQUESTS FROM MIGRANT----");
 		MigranteHandler mh = MigrantMatcher.getInstance().getMigranteHandler();
 		System.out.println("Would you like to register solo or with a familiy?");
@@ -110,6 +121,9 @@ public class Client{
 			
 			mh.confirmar();
 			System.out.println("Your requests have been confirmed!");
+		}
+		}catch (NullMigrantException e) {
+			e.getMessage();
 		}
 	
 		

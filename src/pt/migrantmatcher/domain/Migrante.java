@@ -28,13 +28,16 @@ public class Migrante extends Utilizador implements Observer {
 	}
 	
 	public boolean addFamilyMember(String name) {
-		for (int i = 0; i < family.length; i++) {
-			if(family[i] == null) {
-				family[i] = name;
-				return true;
+		
+		if(family != null) {
+			for (int i = 0; i < family.length; i++) {
+				if(family[i] == null) {
+					family[i] = name;
+					return false;
+				}
 			}
 		}
-		return false;
+		return true;
 	}
 	
 	public void addAjuda(Ajuda ajuda) {

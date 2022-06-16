@@ -1,5 +1,6 @@
 package pt.migrantmatcher.domain;
 
+import pt.migrantmatcher.exceptions.WrongDateFormatException;
 
 public class Ajuda {
 	
@@ -41,6 +42,31 @@ public class Ajuda {
 	}
 	public String getDate() {
 		return date;
+	}
+	
+	public void checkDate(String date) throws WrongDateFormatException {
+		String copy = date;
+		String [] div = copy.split("/");
+		if(div.length == 3) {
+			if(div[0].length() == 2 && div[1].length() == 2 && div[2].length() == 4) {
+				try {
+					@SuppressWarnings("unused")
+					int d,m,y;
+					d = Integer.parseInt(div[0]);
+					m = Integer.parseInt(div[1]);
+					y = Integer.parseInt(div[2]);
+					
+				}catch(NumberFormatException e) {
+					throw new WrongDateFormatException("!!!   Wrong date format! (Correct format: 09/09/1999)  !!!");
+				}
+
+			}else{
+				throw new WrongDateFormatException("!!!   Wrong date format! (Correct format: 09/09/1999)  !!!");
+			}
+		}else {
+			throw new WrongDateFormatException("!!!  Wrong date format! (Correct format: 09/09/1999)  !!!");
+		}
+		
 	}
 	
 }
