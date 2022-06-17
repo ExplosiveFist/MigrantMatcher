@@ -37,7 +37,7 @@ public class AjudasHandler {
 			throw new VoluntaryNumberException("There is no voluntary with this number!");
 		}
 		else {
-			System.out.println("Success!");
+			System.out.println("Success! Please indicate your help type:");
 		}
 		
 	}
@@ -65,7 +65,7 @@ public class AjudasHandler {
 		} catch (WrongRegionException e) {
 			System.out.println(e.getMessage());
 		}
-		
+	
 		return sms;
 	}
 

@@ -40,6 +40,7 @@ public class MigranteHandler {
 			throw new NullMigrantException("Insert positive number for the family members amount");
 		}
 		
+		System.out.println("-Family- Please add the names of the members one by one");
 		m_corrente = catUser.addMigrante(nome,num,familyNumber);
 		
 	}
@@ -76,7 +77,7 @@ public class MigranteHandler {
 			System.out.println("No available helps in the region at the moment... Notification for update in region available");
 			return null;
 		}
-		System.out.println("Please choose the helps you want to get:");
+		System.out.println("\nPlease choose the help offers in " + regionDTO.getName() + " you want to get:");
 		for (AjudasDTO ajuda : availableHelps) {
 			System.out.println(" -----> " + ajuda.getDesc() + " " + ajuda.getDate());
 		}

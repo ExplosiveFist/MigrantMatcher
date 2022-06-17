@@ -15,44 +15,101 @@ import java.util.Random;
 
 public class Client{
 	
+	//Linear path with some random choices and multiple actions. Happy Path 
+	
 	public static void main(String [] args) {
 		
 		Random r  = new Random ();
+		boolean rand = r.nextBoolean();
+		
 		try {
 		//UC1
-		System.out.println("-----REGISTING HELP FROM VOLUNTARY----");
-		AjudasHandler ah = MigrantMatcher.getInstance().getAjudasHandler();
-		System.out.println("Please introduce your phone number");
+		System.out.println("\n-----REGISTING HELP FROM VOLUNTARIES----");
 		
+		AjudasHandler ah = MigrantMatcher.getInstance().getAjudasHandler();
 		ah.verificarUtilizador(918376458);
 		
 		SMSDTO sms = null;
-		System.out.println("Please indicate your help type:");
-		
-		boolean pass = true;
-		
-		if(pass) { // Alojamento
+
+		if(rand) { // Alojamento voluntario 1
 			
-			List<RegionDTO> regions = ah.numPessoasAlojamento(5,"aa/09/2021");
+			List<RegionDTO> regions = ah.numPessoasAlojamento(5,"09/09/2021");
 			
 			System.out.println("Available reigions: \n");
 			for (RegionDTO regionDTO : regions) {
 				System.out.println(regionDTO.getName());
 			}
 			
-			System.out.println("Please choose an available region.");
-			int choice = r.nextInt(regions.size());                    //Simula escolha de regiao
-				
+			
+			int choice = r.nextInt(regions.size());//Simula escolha de regiao
 			sms = ah.regiaoPaisAlojamento(regions.get(choice)); 
+			ah.inserirCodigoUnico(sms.getCode());
+			
+			regions = ah.numPessoasAlojamento(4,"09/09/2022");
+			choice = r.nextInt(regions.size());
+			sms = ah.regiaoPaisAlojamento(regions.get(choice)); 
+			ah.inserirCodigoUnico(sms.getCode());
+			
+			
+			regions = ah.numPessoasAlojamento(7,"01/09/2021");
+			choice = r.nextInt(regions.size());
+			sms = ah.regiaoPaisAlojamento(regions.get(choice)); 
+			ah.inserirCodigoUnico(sms.getCode());
+			
+			regions = ah.numPessoasAlojamento(7,"01/09/2022");
+			choice = r.nextInt(regions.size());
+			sms = ah.regiaoPaisAlojamento(regions.get(choice)); 
+			ah.inserirCodigoUnico(sms.getCode());
+			
+			regions = ah.numPessoasAlojamento(3,"01/01/2022");
+			choice = r.nextInt(regions.size());
+			sms = ah.regiaoPaisAlojamento(regions.get(choice)); 
+			ah.inserirCodigoUnico(sms.getCode());
+			
 		}
-		if(!pass) { // Item
+		else { // Item voluntario 1
 			
 			sms = ah.descricaoItem("Batata frita: da boa","09/09/2021");
+			ah.inserirCodigoUnico(sms.getCode());
+			
+			sms = ah.descricaoItem("Excalibur","09/09/1099");
+			ah.inserirCodigoUnico(sms.getCode());
+			
+			sms = ah.descricaoItem("Dark Matter","09/09/9999");
+			ah.inserirCodigoUnico(sms.getCode());
+			
+			sms = ah.descricaoItem("Pizza Slice","09/09/1999");
+			ah.inserirCodigoUnico(sms.getCode());
+			
+			sms = ah.descricaoItem("Hello World program","09/01/2001");
+			ah.inserirCodigoUnico(sms.getCode());
+			
 		}
 		
-		System.out.println("Insert the code sent to your number to confirm the pending help.");
-		ah.inserirCodigoUnico(sms.getCode());
-		System.out.println("Your Help as been submitted! \n");
+		
+		ah.verificarUtilizador(987654321);
+		
+		if(rand) { //Item voluntario 2
+			
+			sms = ah.descricaoItem("Carro velho","08/08/1888");
+			ah.inserirCodigoUnico(sms.getCode());
+			
+			sms = ah.descricaoItem("Cama","09/09/2009");
+			ah.inserirCodigoUnico(sms.getCode());
+			
+		}else {
+			
+			List<RegionDTO> regions = ah.numPessoasAlojamento(5,"09/09/2021");
+			int choice = r.nextInt(regions.size());//Simula escolha de regiao
+			sms = ah.regiaoPaisAlojamento(regions.get(choice)); 
+			ah.inserirCodigoUnico(sms.getCode());
+			
+			regions = ah.numPessoasAlojamento(4,"09/09/2022");
+			choice = r.nextInt(regions.size());
+			sms = ah.regiaoPaisAlojamento(regions.get(choice)); 
+			ah.inserirCodigoUnico(sms.getCode());
+			
+		}
 		
 		} catch (VoluntaryNumberException e) {
 			System.out.println(e.getMessage());
@@ -64,13 +121,12 @@ public class Client{
 		
 		//UC2
 		try {
-		System.out.println("-----REGISTING HELP REQUESTS FROM MIGRANT----");
+		System.out.println("\n---------REGISTING HELP REQUESTS FROM MIGRANT-------------");
 		MigranteHandler mh = MigrantMatcher.getInstance().getMigranteHandler();
-		System.out.println("Would you like to register solo or with a familiy?");
 		
 		if(r.nextBoolean()) { //Solo
 			
-			System.out.println("Please give state your name and phone number");
+			
 			mh.registarMigrante("Miguel",999888777);
 			
 		}
@@ -78,51 +134,37 @@ public class Client{
 			int familyNumber = 3;
 			String [] familyNames = {"Maria" ,"João"}; 
 			
-			System.out.println("Please give state your name, phone number and the number of additional family members");
-			
 			mh.registarFamily(familyNumber,"Miguel",999888777);  
 			
 			for (int i = 0; i < familyNumber - 1; i++) { 
-				System.out.println("Please add the names of the members one by one");
+				
 				mh.registerMember(familyNames[i]);
 			}	
 		}
 		
 		List<RegionDTO> regions = mh.pedirListaRegioes();
-		System.out.println("Available reigions: \n" + regions);
-		System.out.println("Please choose an available region.");
 		int choice = r.nextInt(regions.size());
 		
 		List<AjudasDTO> helpList = mh.escolherRegiao(regions.get(choice)); //Ter em conta testes em que existem ajudas
 		
-		//Extensão 5a (Usa Observer)
-		if(helpList.isEmpty()) {
-			System.out.println("Oops! Currently there is no registered help offers in this region. Would you like to be notified on updates in the region?");
-			mh.notifyMe(regions.get(choice));
-		}
-		
-		//UC2 cont
-		else {
-			System.out.println("Available help offers: \n" + helpList);
 			
-			//Takes a random number of elements from the help list
-			int numberOfHelps = r.nextInt(helpList.size());
-			List<AjudasDTO> helpsChosen = new ArrayList<>();
-			int helpIndex;
+		//Takes a random number of elements from the help list
+		int numberOfHelps = r.nextInt(helpList.size());
+		List<AjudasDTO> helpsChosen = new ArrayList<>();
+		int helpIndex;
 			
-			for(int i = -1; i < numberOfHelps; i++) { // forces at least one choice
+		for(int i = -1; i < numberOfHelps; i++) { // forces at least one choice
 				 helpIndex = r.nextInt(helpList.size());
 				 helpsChosen.add(helpList.get(helpIndex));
 				 helpList.remove(helpIndex);
 			}
-			System.out.println("Pick the help offers you want to get");
-			for (int i = 0; i < helpsChosen.size(); i++) {
-				mh.escolherTipoDeAjuda(helpsChosen.get(i));
-			}
-			
-			mh.confirmar();
-			System.out.println("Your requests have been confirmed!");
+		
+		for (int i = 0; i < helpsChosen.size(); i++) {
+			mh.escolherTipoDeAjuda(helpsChosen.get(i));
 		}
+			
+		mh.confirmar();
+		
 		}catch (NullMigrantException e) {
 			e.getMessage();
 		} catch (WrongRegionException e) {

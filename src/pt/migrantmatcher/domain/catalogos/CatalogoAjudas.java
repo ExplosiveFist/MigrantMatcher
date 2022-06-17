@@ -27,7 +27,7 @@ public class CatalogoAjudas {
 
 	public void registerHelp(Ajuda help) {
 		ajudas.add(help);
-		System.out.println("~~~~~~ Your help has been sucessfully recorded! ~~~~~~~");
+		System.out.println("\n~~~~~~ Your help has been sucessfully recorded! ~~~~~~~\n");
 		
 	}
 
@@ -121,8 +121,9 @@ public class CatalogoAjudas {
 	public void sendSMS() {
 		
 		for (Ajuda ajuda : requested) {
-			ajuda.getAjudaOwner().sendSMS("Your has been accepted!");
+			ajuda.getAjudaOwner().sendSMS("One of your help offers has been accepted!");
 		}
+		ajudas.removeAll(requested);
 		this.requested.clear();
 	}
 }

@@ -16,6 +16,7 @@ public class Voluntario extends Utilizador {
 	private SMS sms;
 	private List<Ajuda> ajudas;
 	private Ajuda currentHelp;
+	private String helpType;
 	
 	public Voluntario(int telemovel) {
 		super(telemovel);
@@ -35,6 +36,7 @@ public class Voluntario extends Utilizador {
 		try {
 			
 		currentHelp = new Alojamento(i, date);
+		helpType = "accommodation";
 		
 		}catch(WrongDateFormatException e){
 			System.out.println(e.getMessage());
@@ -62,7 +64,7 @@ public class Voluntario extends Utilizador {
 		String code = generateCode();
 		
 		sms.setCode(code);
-		sms.setMsg("Please confirm the code " + code + " to register your help");
+		sms.setMsg("Please confirm the code " + code + " to register your " + helpType);
 		this.sms = sms;
 		
 		sms.send();
@@ -96,6 +98,7 @@ public class Voluntario extends Utilizador {
 		
 		try {
 		currentHelp = new Doacao(desc, date);
+		helpType = "donation";
 		return createSMS();
 		
 		}catch(WrongDateFormatException e){
