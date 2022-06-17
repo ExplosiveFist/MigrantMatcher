@@ -28,7 +28,7 @@ public class Configuration {
 		
 		try {
 			
-			prop.load(new FileInputStream(new File("smsprovider.properties")));
+			prop.load(new FileInputStream(new File("defaults.properties")));
 			
 			String className =  prop.getProperty("smsprovider");
 			String className2 = prop.getProperty("sortstrategy");

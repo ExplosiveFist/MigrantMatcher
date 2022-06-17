@@ -21,6 +21,7 @@ public class CatalogoAjudas {
 	
 	public CatalogoAjudas() {
 		this.ajudas = new ArrayList<Ajuda>();
+		this.requested = new ArrayList<Ajuda>();
 		
 	}
 
@@ -81,7 +82,7 @@ public class CatalogoAjudas {
 		if(ajudaDTO == null) {
 			return false;
 		}
-		this.requested = new ArrayList<Ajuda>();
+		
 		for (Ajuda ajuda : ajudas) {
 				if(isAjudaEqual(ajuda,ajudaDTO)) {
 					this.requested.add(ajuda);
@@ -118,9 +119,10 @@ public class CatalogoAjudas {
 	}
 
 	public void sendSMS() {
-		for (Ajuda ajuda : requested) {
-			ajuda.getAjudaOwner().sendSMS("Your help has been accepted!");
-		}
 		
+		for (Ajuda ajuda : requested) {
+			ajuda.getAjudaOwner().sendSMS("Your has been accepted!");
+		}
+		this.requested.clear();
 	}
 }

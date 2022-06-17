@@ -78,7 +78,7 @@ public class MigranteHandler {
 		}
 		System.out.println("Please choose the helps you want to get:");
 		for (AjudasDTO ajuda : availableHelps) {
-			System.out.println(" -----> " + ajuda.getDesc());
+			System.out.println(" -----> " + ajuda.getDesc() + " " + ajuda.getDate());
 		}
 		
 		return availableHelps;

@@ -15,15 +15,16 @@ public class SortByType implements SortStrategy {
 		
 		for (int i = 0; i < helplist.size(); i++) {
 			 
-			if(h.get(i).getType().equals("Alojamento")) {
+			if(helplist.get(i).getType().equals("Alojamento")) {
 				
 				h.add(0,helplist.get(i));
 			}
-			if(h.get(i).getType().equals("Doação")) {	
+			if(helplist.get(i).getType().equals("Doação")) {	
 				h.add(helplist.get(i));
 				}
 		}
-		helplist = h;
+		helplist.clear();
+		helplist.addAll(h);
 		
 	}
 
